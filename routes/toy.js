@@ -111,3 +111,5 @@ router.get('/logout', (req, res) => {
   req.session.destroy(); // Destroy the session
   res.redirect('/login'); // Redirect to the login page or any other public page
 });
+
+module.exports = router;
