@@ -22,7 +22,7 @@ var db = "mongodb+srv://cell135:magiccard4@cluster0.3vtwmjc.mongodb.net/ATNTOYS"
 mongoose.connect(db).then(() => { console.log ("connect to db ok !")});
 
 //Cong/Port
-var PORT = process.env.PORT || 5001
+var PORT = process.env.PORT || 3001
 app.listen(PORT) 
 console.log("Server is running " + PORT)
 
