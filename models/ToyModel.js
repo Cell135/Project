@@ -5,7 +5,9 @@ var ToySchema = mongoose.Schema(
       price : Number,
       picUrl : String,
       description : String,
-      amount : Number
+      amount : Number,
+      dateandtime: Date,
+      category : String
    }
 );
 

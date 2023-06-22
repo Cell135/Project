@@ -8,7 +8,7 @@
             <h4 class="card-title text-success">{{ name }}</h4>
             <h3 class="card-title text-danger">${{ price }}</h3>
             <p class="fw-bold card-text text-primary">{{ description }}</p>
-            <form action="toy/order" method="post">
+            <form action="/toy/order" method="post">
                <input type="hidden" name="id" value="{{_id}}"> 
                <input type="hidden" name="price" value="{{price}}">
                <input class="form-control mb-3" type="number" name="order_amount" 

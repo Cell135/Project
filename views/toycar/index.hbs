@@ -49,10 +49,9 @@
             <a class="navbar-brand" href="/">ATNToys</a>
          </div>
          <ul class="nav navbar-nav">
-            <li class="active"><a href="/toy">Products</a></li>
+            <li class="active"><a href="/toycar">Products</a></li>
             <li><a href="/">Index Page</a></li>
-            <li><a href="/toy/add">Add new product</a></li>
-            <li><a href="/toycar">Toycar section</a></li>
+            <li><a href="/toycar/add">Add new product</a></li>
          </ul>
       </div>
    </nav>
@@ -64,7 +63,7 @@
       </tr>
       <tr>
          <th colspan="4">
-            <form action="/toy/search" method="post">
+            <form action="/toycar/search" method="post">
                <input class="form-control" type="search" name="keyword" placeholder="Search by Toy name">
             </form>
          </th>
@@ -74,43 +73,36 @@
                Dropdown button
             </button>
             <ul class="dropdown-menu">
-               <li><a class="dropdown-item" href="/toy/ascending">Price Ascending</a></li>
-               <li><a class="dropdown-item" href="/toy/descending">Price Descending</a></li>
+               <li><a class="dropdown-item" href="/toycar/ascending">Price Ascending</a></li>
+               <li><a class="dropdown-item" href="/toycar/descending">Price Descending</a></li>
             </ul>
          </div>
          <th>
-            <a class="btn btn-danger" href="/toy/drop"
+            <a class="btn btn-danger" href="/toycar/drop"
                onclick="return confirm('Are you sure to delete all toy ?');">Drop</a>
          </th>
       </tr>
       <tr class="table-primary border-info-bold"
          style="font-size: 20px; background-color: rgb(255,99,71); color: whitesmoke">
          <th style="color: red;">Name</th>
-         <th style="color: red;">Price</th>
+         <th style="color: red;">Brand/th>
          <th style="color: red;">Picture</th>
-         <th style="color: red;">Description</th>
-         <th style="color: red;">Amount</th>
-         <th style="color: red;"></th>
-         <th style="color: red;">Birthday</th>
-         <th style="color: red;">Catergory</th>
+         <th style="color: red;">Price</th>
       </tr>
       <tbody>
-         {{#each toys }}
+         {{#each toyscar }}
          <tr style="font-size: 20px; color: black; background-color: transparent">
             <th "padding-top: 80px; font-size: 20px;">{{ name }}</th>
-            <th style="text-align:center; padding-top: 80px; font-size: 25px;">{{ price }}</th>
+            <th style="text-align:center; padding-top: 80px; font-size: 25px;">{{ brand }}</th>
             <th style="text-align:center">
-               <img src="{{ picUrl }}" width="200" height="150">
+               <img src="{{ image }}" width="200" height="150">
             </th>
-            <th style="padding-top: 80px; margin-right: 100px; font-size: 20px;"> {{ description }}</th>
-            <th style="text-align:center; padding-top: 80px; font-size: 25px;">{{ amount }}</th>
+            <th style="padding-top: 80px; margin-right: 100px; font-size: 20px;"> {{ price }}</th>
             <th>
-               <a class="btn btn-warning" href="/toy/edit/{{_id}}">Edit</a>
-               <a class="btn btn-danger" href="/toy/delete/{{_id}}"
-                  onclick="return confirm('Are you sure to delete this toy ?');">Delete</a>
+               <a class="btn btn-warning" href="/toycar/edit/{{_id}}">Edit</a>
+               <a class="btn btn-danger" href="/toycar/delete/{{_id}}"
+                  onclick="return confirm('Are you sure to delete this car ?');">Delete</a>
             </th>
-            <th style="text-align:center; padding-top: 80px; font-size: 25px;">{{ dateandtime }}</th>
-            <th style="text-align:center; padding-top: 80px; font-size: 25px;">{{ category }}</th>
          </tr>
       </tbody>
       {{/each}}

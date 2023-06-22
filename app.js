@@ -8,7 +8,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var toyRouter = require('./routes/toy');
-var loginRouter = require('./routes/users');
+var loginRouter = require('./routes/login');
+var toycarRouter = require('./routes/toycar');
 
 var app = express();
 
@@ -22,7 +23,7 @@ var db = "mongodb+srv://cell135:magiccard4@cluster0.3vtwmjc.mongodb.net/ATNTOYS"
 mongoose.connect(db).then(() => { console.log ("connect to db ok !")});
 
 //Cong/Port
-var PORT = process.env.PORT || 3001
+var PORT = process.env.PORT || 4002
 app.listen(PORT) 
 console.log("Server is running " + PORT)
 
@@ -41,6 +42,7 @@ app.use('/users', usersRouter);
 
 app.use('/toy',toyRouter);
 app.use('/toy/login',loginRouter);
+app.use('/toycar',toycarRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

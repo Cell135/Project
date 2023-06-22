@@ -26,6 +26,7 @@ router.post('/search', async (req, res) => {
     res.render('toy/index', { toys: toys })
  })
 
+
  router.get('/list', async (req, res) => {
     var toys = await ToyModel.find({});
     res.render('toy/list', { toys: toys });
@@ -49,10 +50,10 @@ router.post('/search', async (req, res) => {
   router.post('/order', async (req, res) => {
     var id = req.body.id;
     var toy = await ToyModel.findById(id);
-    var amount_quantity = req.body.amount_quantity;
+    var order_quantity = req.body.order_quantity;
     var price = req.body.price;
-    var total_price = price * amount_quantity;
-    res.render('/order_confirm', { toy: toy, amount_quantity : amount_quantity, total_price : total_price});
+    var total_price = price * order_quantity;
+    res.render('toy/order_confirm', { toy: toy, order_quantity : order_quantity, total_price : total_price});
   })
   
   router.get('/add', (req, res) => {
@@ -85,31 +86,5 @@ router.post('/search', async (req, res) => {
         res.redirect('/toy');
       });
   });
-
-// Login Route
-router.get('/login', (req, res) => {
-  res.render('Toy/login'); // Render the login form from the Toy folder
-});
-
-router.post('/login', (req, res) => {
-  // Check the user credentials and log them in
-  const { username, password } = req.body;
-
-  // Here, you would typically authenticate the user against your user model or a database
-  // For demonstration purposes, let's assume the username is "admin" and the password is "password"
-
-  if (username === 'username' && password === 'password') {
-    req.session.user = username; // Store the username in the session
-    res.redirect('/toy'); // Redirect to the dashboard or any other authenticated page
-  } else {
-    res.redirect('/login'); // Redirect back to the login page if the credentials are incorrect
-  }
-});
-
-// Logout Route
-router.get('/logout', (req, res) => {
-  req.session.destroy(); // Destroy the session
-  res.redirect('/login'); // Redirect to the login page or any other public page
-});
 
 module.exports = router;
